@@ -1,0 +1,42 @@
+
+<div class="app-movie">
+
+  <h2 class="app-movie__title"> {{ filme.title }} - ({{ filme.publication_date | date:'yyyy' }})</h2>
+
+  <div class="app-movie__content" fxLayout="row wrap" fxLayout.lt-sm="column">
+
+    <div class="app-movie-image" fxFlex>
+      <div class="app-movie-image-center">
+        <img alt={{filme.title}} class="imgte" src="https://covers.openlibrary.org/b/isbn/{{filme.isbn13}}-L.jpg">
+      </div>
+    </div>
+
+    <div class="app-movie__info" fxFlex>
+
+      <p>Rating: <span>{{filme.avg}}/10 <mat-icon>grade</mat-icon>({{allRate}} ratings)</span></p>
+
+      <p>Category: <span>{{filme.category.name}}</span></p>
+
+      <p>Language: <span>{{filme.language.language_name}}</span></p>
+
+      <p>Pages: <span>{{filme.num_pages}}</span></p>
+
+      <p>Publisher: <span>{{filme.publisher.publisher_name}}</span></p>
+
+      <p>Description: <span class="description">{{filme.description}}</span></p>
+
+      <div class="bar-rating">
+        <bar-rating (rateChange)="saveRating(rate)" [(rate)]="rate" [max]="10"></bar-rating>
+        <p>Your rating:{{rate}}</p>
+      </div>
+
+    </div>
+
+    <div class="book-similar" fxFlex></div>
+
+  </div>
+
+</div>
+
+<app-comments></app-comments>
+

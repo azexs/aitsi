@@ -1,0 +1,86 @@
+﻿<div class="container">
+  <h1>Catalog</h1>
+  <mat-card>
+    <form (ngSubmit)="onFormSubmit()" [formGroup]="booksForm">
+      <mat-card-title>Filters</mat-card-title>
+      <mat-card-content>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="3.5%" fxLayoutWrap>
+
+          <mat-form-field class="example-full-width" fxFlex>
+            <input autocomplete="off" formControlName="title" matInput matTooltip="Enter Title" placeholder="Title">
+            <mat-error>
+              <span *ngIf="!booksForm.get('title')?.value && booksForm.get('title')?.touched"></span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" fxFlex>
+            <mat-label>Category</mat-label>
+            <mat-select autocomplete="off" formControlName="categoryId" matTooltip="Select Category">
+              <mat-option *ngFor="let Category of (allCategory | async)" [value]="Category.categoryId">
+                {{Category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" fxFlex>
+            <input autocomplete="off" formControlName="from" matInput matTooltip="Enter YearFrom"
+                   placeholder="Year From">
+            <mat-error>
+              <span *ngIf="!booksForm.get('from')?.value && booksForm.get('from')?.touched"></span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="3.5%" fxLayoutWrap layout-margin>
+
+          <mat-form-field fxFlex>
+            <input autocomplete="off" formControlName="isbn" fxFlex="75%" matInput matTooltip="Enter Isbn"
+                   placeholder="isbn">
+            <mat-error>
+              <span *ngIf="!booksForm.get('isbn')?.value && booksForm.get('isbn')?.touched"></span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <mat-label>Language</mat-label>
+            <mat-select autocomplete="off" formControlName="languageId" matTooltip="Select Language">
+              <mat-option *ngFor="let Language of (allLanguage | async)" [value]="Language.language_id">
+                {{Language.language_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field fxFlex>
+            <input autocomplete="off" formControlName="to" matInput matTooltip="Enter YearTo" placeholder="Year To">
+            <mat-error>
+              <span *ngIf="!booksForm.get('to')?.value && booksForm.get('to')?.touched"></span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="!booksForm.valid" color="accent" mat-raised-button matTooltip="Submit" type="submit">
+          Submit
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="resetForm()" color="accent" mat-raised-button matTooltip="Reset" type="reset">Reset</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="center" fxLayoutGap="15px grid">
+    <ng-container *ngFor="let filme of books">
+      <app-catalog [filme]="filme" [isRec]="false"
+                   fxFlex="0 1 calc(20% - 15px)" fxFlex.lt-md="0 1 calc(33.33% - 15px)"
+                   fxFlex.lt-sm="100%"></app-catalog>
+    </ng-container>
+  </div>
+  <mat-paginator
+    (page)="pageEvent = getServerData($event)"
+    [length]="length"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="[20,50,100]"
+    [pageSize]="pageSize"
+  >
+  </mat-paginator>
+</div>
+

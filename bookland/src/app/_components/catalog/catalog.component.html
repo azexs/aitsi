@@ -1,0 +1,20 @@
+<mat-card class="filme-card">
+  <mat-card-content>
+    <div class="app-movie-image-center">
+      <img alt={{filme.title}} class="imgte"
+           routerLink="/books/{{filme.book_id}}" src="https://covers.openlibrary.org/b/isbn/{{filme.isbn13}}-L.jpg">
+
+    </div>
+  </mat-card-content>
+  <mat-card-header>
+    <mat-card-title>{{filme.title}}</mat-card-title>
+    <mat-card-subtitle>
+      <p class="author"><span>{{filme.publisher.publisher_name}} </span>
+      <p *ngIf="!isRec" class="rate"><span>{{filme.avg || 0}} /10 <mat-icon>grade</mat-icon> </span>
+      <p *ngIf="isRec" class="recommendation">Similarity: <span>{{filme.avg || 0}}%</span>
+        <!--  <p class="year"><span>{{filme.publication_date | date: 'yyyy'}}</span>-->
+    </mat-card-subtitle>
+
+
+  </mat-card-header>
+</mat-card>

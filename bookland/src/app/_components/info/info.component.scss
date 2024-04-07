@@ -1,0 +1,76 @@
+.description {
+  color: #111;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 80%;
+  font-weight: 300;
+  line-height: 32px;
+  text-align: justify
+}
+
+span {
+  color: #111;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 120%;
+  font-weight: 300;
+  line-height: 32px;
+  text-align: justify
+}
+
+
+p {
+  color: #ff4411;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 100%;
+  line-height: 24px;
+  text-align: left;
+  text-justify: inter-word;
+}
+
+
+.bar-rating > p {
+  text-align: center;
+  color: #111;
+}
+
+
+.app-movie {
+  background-color: #fff;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  color: #212121;
+  padding: 0.5rem;
+  width: 80%;
+  margin: 20px auto;
+}
+
+@media screen and (min-width: 748px) {
+  .app-movie {
+    padding: 1rem;
+  }
+}
+
+mat-icon {
+  transform: scale(0.8);
+  display: inline-flex;
+  vertical-align: middle;
+  padding-bottom: 5px;
+  color: #ffbb00;
+}
+
+.app-movie-image-center {
+  margin: auto;
+
+  max-width: 75%;
+  max-height: 75%;
+
+  background-image: url('https://i.pinimg.com/originals/b5/48/c4/b548c4b1da24ac7ec74785b4e4581d7f.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+}
+
+.imgte {
+  width: 100%;
+  height: 100%;
+}
+

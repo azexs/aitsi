@@ -1,0 +1,71 @@
+mat-card {
+  overflow: hidden;
+}
+
+mat-card-subtitle {
+  /*font-size: larger;*/
+  color: white;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+.filme-card {
+  border-radius: 4px;
+  max-width: 400px;
+  background-color: #222222;
+  height: calc(100% - 15px);
+  color: white;
+  padding: .5rem;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
+    0 6px 10px 0 rgba(0,0,0,.14),
+    0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.mat-card-title{
+  font-weight: bold;
+}
+
+.mat-icon {
+  transform: scale(0.8);
+  display: inline-flex;
+  vertical-align: middle;
+  padding-bottom: 5px;
+  color: #ffbb00;
+}
+
+.mat-card-content {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.app-movie-image-center {
+  margin: auto;
+
+  background-image: url('https://i.pinimg.com/originals/b5/48/c4/b548c4b1da24ac7ec74785b4e4581d7f.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+}
+
+.imgte {
+  width: 100%;
+  height: 100%;
+}
+
+.recommendation {
+  text-align: center;
+  font-size: 100%;
+  background: #9a3;
+  border-radius: 5px;
+  color: #000000;
+  font-weight: normal;
+}
+
+.recommendation > span {
+  font-size: 120%;
+  font-weight: bold;
+}

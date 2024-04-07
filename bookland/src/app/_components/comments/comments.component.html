@@ -1,0 +1,22 @@
+<div class="cmnts">
+  <ul>
+    <li *ngFor="let comment of comments | async">
+      <header>
+        <h1 [attr.data-after]="comment.author" class="author">{{ comment.title }}</h1>
+        <img alt="abc" src="https://scta.ca.gov/wp-content/uploads/2019/02/scta-blank-profile-picture.jpg">
+        <div>
+        </div>
+      </header>
+      <p>{{comment.comment}}</p>
+    </li>
+  </ul>
+
+  <form (ngSubmit)="addNewComment()" [formGroup]="commentsForm">
+    <input autocomplete="off" formControlName="title" matInput placeholder="Title">
+    <textarea formControlName="comment" matInput placeholder="Comment"></textarea>
+    <img alt="abc" id="newCommentAvatar"
+         src="https://scta.ca.gov/wp-content/uploads/2019/02/scta-blank-profile-picture.jpg">
+    <button [disabled]="!commentsForm.valid" color="accent" mat-raised-button matTooltip="Submit" type="submit">Submit
+    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+  </form>
+</div>

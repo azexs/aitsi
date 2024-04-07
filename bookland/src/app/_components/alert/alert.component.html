@@ -1,0 +1,8 @@
+﻿<div *ngFor="let alert of alerts"  [ngClass]="{ 'alert': alert, 'alert-success': alert.type === 0, 'alert-danger': alert.type === 1}">
+    <a class="close" (click)="removeAlert(alert)">&times;</a>
+    <span [innerHTML]="alert.message"></span>
+</div>
+
+
+
+

@@ -1,0 +1,44 @@
+
+  <mat-toolbar color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <a mat-button class="companyName" routerLink="/books">
+      <span>BookFinder</span>
+    </a>
+    <div fxShow="true" fxHide.lt-md="true">
+      <a mat-button routerLink="/books">Catalog</a>
+      <a mat-button routerLink="/info">Info</a>
+    </div>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <a *ngIf="!user" mat-button routerLink="/login">Login</a>
+      <a *ngIf="!user" mat-button routerLink="/register" routerLinkActive="active">Register</a>
+      <span *ngIf="user">Hello {{user.username}}</span>
+      <a *ngIf="user" mat-button (click)="logout()">Logout</a>
+    </div>
+
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+      <div fxLayout="column">
+        <span *ngIf="user">Hello {{user.username}}</span>
+        <a mat-button routerLink="/books">Catalog</a>
+        <a mat-button routerLink="/recommended">Recommended</a>
+        <a *ngIf="!user" mat-button routerLink="/login">Login</a>
+        <a *ngIf="!user" mat-button routerLink="/register" routerLinkActive="active">Register</a>
+        <a *ngIf="user" mat-button (click)="logout()">Logout</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <alert></alert>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+<!--
+<div class="form">
+  <input [(ngModel)]="text" (change)="onSearch()" type="text" placeholder="Search..." class="search" />
+</div>-->

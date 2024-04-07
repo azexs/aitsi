@@ -1,0 +1,33 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 748px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+h1 {
+  width: 100%;
+  text-align: initial;
+  margin: 20px auto;
+  font-family: 'Lato', sans-serif;
+  font-size: 54px;
+  font-weight: 300;
+  line-height: 58px;
+}
+
+mat-card {
+  width: 80%;
+  margin: auto auto 20px;
+}
+
+/*
+td, th {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+*/
